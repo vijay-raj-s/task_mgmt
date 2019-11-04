@@ -1,0 +1,13 @@
+<div class='container'>
+    <mat-toolbar>
+        <span>Task Management App</span>
+    </mat-toolbar>
+    <div class='container-body'> 
+        <div class='title-section'> 
+            <div class='title'> Tasks </div>
+        </div>
+        <div class='tasks-section'  >
+            <task-group *ngFor='let group of taskGroups' class='task-group' [details]='group'></task-group>
+        </div>
+    </div>
+</div>
