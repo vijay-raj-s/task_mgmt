@@ -8,9 +8,11 @@
     @include box-shadow
     margin: 10px 5px
     border-radius: 5px
+    cursor: pointer
+    padding: 5px 10px
 
     .title-section
-        height: 50px
+        height: 30px
         display:flex
         align-items: center
         display: flex
@@ -25,5 +27,17 @@
                 img
                     width: 30px
                     height: 30px
-            
 
+    .description
+        min-height: 40px 
+        margin-left: 50px
+        background-color: $task-description-bg
+        padding: 5px
+        border-radius: 5px
+        
+             
+
+    .due-date
+        min-height: 40px
+        @include flex-end
+        margin-right: 10px

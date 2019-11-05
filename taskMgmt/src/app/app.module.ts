@@ -12,26 +12,33 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskComponent } from './task/task.component';
 
 //Material Design Components
-import { MatToolbar } from '@angular/material/toolbar';
-
-
+import { MatIconModule, MatButtonModule,  MatToolbar, MatDialogModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     PathNotFoundComponent,
     TaskBoardComponent,
-    MatToolbar,
+    MatToolbar,  
     TaskGroupComponent,
-    TaskComponent
+    TaskComponent,
+    TaskDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TaskDialogComponent]
 })
 export class AppModule { }
