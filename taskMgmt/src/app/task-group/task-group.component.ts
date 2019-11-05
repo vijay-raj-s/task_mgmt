@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TaskGroup } from '../task-group';
-import { Task } from '../task';
+ 
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'task-group',
@@ -24,14 +25,20 @@ export class TaskGroupComponent implements OnInit {
     if(event.key == "Enter"){
       let task = {
         'id': (this.details.tasks ? this.details.tasks.length + 1 : 1),
-        'name' : this.taskName
+        'name' : this.taskName,
+        'status': this.details.id == 3? 1 : 0
       }
+      
       this.details.tasks?  null: this.details.tasks = [];
       this.details.tasks.splice(0, 0,task);
       this.addTaskVisible = false;
       this.taskName = ''; 
     }
     
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.details.tasks, event.previousIndex, event.currentIndex);
   }
 
   ngOnInit() {

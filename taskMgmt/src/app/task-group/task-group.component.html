@@ -6,7 +6,7 @@
     <div class='create-task' *ngIf='addTaskVisible'> 
         <input type='text' placeholder='task name' [(ngModel)]='taskName' (keypress)='createNewTask($event)' />
     </div>
-    <div class='tasks-list'> 
-        <task *ngFor='let task of details.tasks' [taskInfo]='task'></task>
+    <div class='task-list' cdkDropList (cdkDropListDropped)="drop($event)"> 
+        <task class='task-box' cdkDrag *ngFor='let task of details.tasks' [taskInfo]='task'></task>
     </div>
 </div>
