@@ -6,8 +6,21 @@
         <div class='title-section'> 
             <div class='title'> Tasks </div>
         </div>
-        <div class='tasks-section'  >
-            <task-group *ngFor='let group of taskGroups' class='task-group' [details]='group'></task-group>
+        <div class='tasks-section' cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" >
+            <task-group cdkDrag *ngFor='let group of taskGroups' class='task-group' [details]='group'></task-group>
+            <div class='add-task-group' >
+                <span (click)='addTaskGroupVisible=true'> Add Task Group </span> 
+                <div class='floating-input' *ngIf='addTaskGroupVisible'  >
+                    <div class='input-title' (mouseenter)='showCancel=true' (mouseleave)='showCancel=false'>
+                        <div [style.visibility]="showCancel ? 'visible' : 'hidden'" class='cancel-label' (click)='addTaskGroupVisible=false'> Cancel </div>
+                        <div> Add Task Group </div>
+                        <div class='create-label' (click)='createTaskGroup()'> Create </div>    
+                    </div>
+                    <div class='input-container'>
+                        <input type="text" placeholder="Label" [(ngModel)]="taskGroupName"  />     
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,29 +1,96 @@
-@import '../constants/common_css' 
+@import '../constants/css_constants' 
 @import '../constants/mixins' 
+@import '../constants/colors'
+
 
 .container
     height: 100%
-
+    
     .container-body
         height: calc(100% - #{$header-height})
-        .title-section
-            background: #fff
-            color: #000
-            height: $task-section-height
+        background-color: $body-background
+        padding: 0px 25px
         
+        .title-section
+            color: #000
+            font-size: 18px
+            font-weight: bold
+            height: $task-section-height
+            display: flex
+            justify-content: flex-start
+            align-items: center
+        
+        .cdk-drag-preview 
+            box-sizing: border-box
+            border-radius: 4px
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12)
+            
+
+        .cdk-drag-placeholder 
+            opacity: 0
+        
+
+        .cdk-drag-animating 
+            transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)
+            
+        .task-section.cdk-drop-list-dragging .task-group:not(.cdk-drag-placeholder) 
+            transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)
+            
         .tasks-section
             display: flex 
             height: calc(100% - #{$task-section-height})
-            > task-group
-                width: $task-group-width
+            overflow-x: auto
+            cursor: move
+            .task-group
+                min-width: $task-group-width
+                border-radius: 5px
                 margin: 0px 5px
-                margin-bottom:30px
-                padding: 30px 
-                background-color: rgba(234,234,234,.7)
+                margin-bottom:30px 
+                background-color: $task-group-bg
                 color: #333
                 border-radius: 5px
                 @include box-shadow
-                
+            
+            .task-group:last-child 
+                border: none
+            
+            .add-task-group
+                min-width: $task-group-width
+                background-color: $task-group-bg
+                border-radius: 5px
+                height: 40px
+                @include align-middle
+                cursor: pointer
+                position: relative
+
+                .floating-input
+                    position: absolute
+                    top: 45px
+                    height: $floating-input-height
+                    width: $floating-input-width
+                    background-color: #fff
+                    border-radius: 10px
+
+                    .input-title
+                        height: 50%
+                        @include flex-space-around
+
+                        .create-label
+                            color: #23aae2
+                        
+
+                    .input-container    
+                        height: 50%
+                        > input
+                            height: 100%
+                            border: none
+                            margin: 0px 10px
+                            padding: 0px 10px
+                            outline: none
+                            width: calc(100% - 40px)
+
+
+
 
                 
 

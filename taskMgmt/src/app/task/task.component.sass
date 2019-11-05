@@ -1,0 +1,29 @@
+@import '../constants/css_constants' 
+@import '../constants/mixins' 
+@import '../constants/colors'
+
+.container
+    min-height: 50px
+    background: #fff
+    @include box-shadow
+    margin: 10px 5px
+    border-radius: 5px
+
+    .title-section
+        height: 50px
+        display:flex
+        align-items: center
+        display: flex
+        align-items: center
+        margin: 5px 10px
+
+        .name
+            margin-left: 10px
+        .status
+            cursor: pointer
+            .status-image
+                img
+                    width: 30px
+                    height: 30px
+            
+

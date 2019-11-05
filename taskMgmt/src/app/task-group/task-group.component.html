@@ -1,3 +1,12 @@
 <div class='container'>
-    {{this.details.name}}
+    <div class='title-section'> 
+        <span class='title'>{{this.details.name}} </span>
+        <span class='new-task-button' (click)='addTaskVisible=true'>+</span>
+    </div>
+    <div class='create-task' *ngIf='addTaskVisible'> 
+        <input type='text' placeholder='task name' [(ngModel)]='taskName' (keypress)='createNewTask($event)' />
+    </div>
+    <div class='tasks-list'> 
+        <task *ngFor='let task of details.tasks' [taskInfo]='task'></task>
+    </div>
 </div>

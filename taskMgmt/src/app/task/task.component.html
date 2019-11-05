@@ -1,0 +1,15 @@
+<div class='container'>
+    <div class='title-section'>
+        <div class='status'> 
+            <span  [style.display]="taskInfo.status ? 'none' : 'block'"  class='status-image'>
+                 <img src="assets/empty.svg" /> 
+            </span>
+            <span  [style.display]="taskInfo.status ? 'block' : 'none'"  class='status-image'>
+                 <img src="assets/check.svg" />
+            </span> 
+        </div>
+        <div class='name'>{{taskInfo.name}}</div>    
+    </div>
+    <div class='description'>{{taskInfo.description}} </div>
+    <div class='dueDate'>{{taskInfo.dueDate}} </div>
+</div>
