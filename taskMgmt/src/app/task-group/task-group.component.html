@@ -4,9 +4,9 @@
         <span class='new-task-button' (click)='addTaskVisible=true'>+</span>
     </div>
     <div class='create-task' *ngIf='addTaskVisible'> 
-        <input type='text' placeholder='task name' [(ngModel)]='taskName' (keypress)='createNewTask($event)' />
+        <input type='text' placeholder='task name' [(ngModel)]='taskName' (blur)='createNewTask($event)' (keypress)='createNewTask($event)' />
     </div>
-    <div class='task-list' cdkDropList (cdkDropListDropped)="drop($event)"> 
-        <task class='task-box' cdkDrag *ngFor='let task of details.tasks' [taskInfo]='task'></task>
+    <div class='task-list' cdkDropList (cdkDropListDropped)="drop($event)" > 
+        <task class='task-box' cdkDrag *ngFor='let task of details.tasks' [taskInfo]='task' [taskGroups]='taskGroups'></task>
     </div>
 </div>

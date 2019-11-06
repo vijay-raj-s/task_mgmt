@@ -3,5 +3,6 @@ export class Task {
     name: string;
     description?: string;
     dueDate?: string;
-    taskDone?: boolean
+    taskDone?: boolean;
+    parentGroupID: number;
 }

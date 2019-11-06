@@ -11,8 +11,20 @@
                 </mat-form-field>
             </div>
             <div> 
-                <mat-form-field class="example-full-width">
-                    <input name='taskDueDate' matInput placeholder="Due date" [(ngModel)]="task.dueDate">
+                <mat-form-field>
+                    <input name='dueDate' matInput [matDatepicker]="picker" [(ngModel)]="task.dueDate"  placeholder="Due date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div> 
+                <mat-form-field>
+                    <mat-label>Change Task Group</mat-label>
+                    <mat-select [(ngModel)]="taskGroupSelected" name='group-select'>
+                        <mat-option *ngFor="let group of taskGroups" [value]="group.id">
+                        {{group.name}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class='form-buttons'>

@@ -3,13 +3,14 @@
 @import '../constants/colors'
 
 .container
-    min-height: 50px
+    min-height: 40px
     background: #fff
     @include box-shadow
     margin: 10px 5px
     border-radius: 5px
     cursor: pointer
     padding: 5px 10px
+    position: relative
 
     .title-section
         height: 30px
@@ -18,12 +19,16 @@
         display: flex
         align-items: center
         margin: 5px 10px
-
+        
+        .edit-icon
+            position: absolute
+            right: 10px
         .name
             margin-left: 10px
         .status
             cursor: pointer
             .status-image
+                cursor: pointer
                 img
                     width: 30px
                     height: 30px
@@ -39,5 +44,4 @@
 
     .due-date
         min-height: 40px
-        @include flex-end
-        margin-right: 10px
+        @include flex-end 

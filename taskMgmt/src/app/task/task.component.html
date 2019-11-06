@@ -1,15 +1,16 @@
-<div class='container' (click)='openDialog()'>
+<div class='container' (click)='openDialog()' (mouseleave)='showEditIcon=false' (mouseenter)='showEditIcon=true'>
     <div class='title-section'>
-        <div class='status'> 
-            <span  [style.display]="taskInfo.status ? 'none' : 'block'"  class='status-image'>
+        <div class='status' (click)='markTaskDone(taskInfo)'> 
+            <span  [style.display]="taskInfo.taskDone ? 'none' : 'block'"  class='status-image'>
                  <img src="assets/empty.svg" /> 
             </span>
-            <span  [style.display]="taskInfo.status ? 'block' : 'none'"  class='status-image'>
+            <span  [style.display]="taskInfo.taskDone ? 'block' : 'none'"  class='status-image'>
                  <img src="assets/check.svg" />
             </span> 
         </div>
-        <div class='name'>{{taskInfo.name}}</div>    
+        <div class='name'>{{taskInfo.name}}</div>  
+        <div *ngIf='showEditIcon' class='edit-icon'><i class="material-icons"> edit </i> </div>  
     </div>
     <div class='description' *ngIf='taskInfo.description'>{{taskInfo.description}} </div>
-    <div class='due-date' *ngIf='taskInfo.dueDate'> <i class="material-icons">date_range</i> {{taskInfo.dueDate}} </div>
+    <div class='due-date' *ngIf='taskInfo.dueDate'> <i class="material-icons">date_range</i> {{taskInfo.dueDate | date: 'dd/MM/yyyy'}} </div>
 </div>

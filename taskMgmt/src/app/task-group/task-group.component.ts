@@ -11,6 +11,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class TaskGroupComponent implements OnInit {
 
   @Input() details: TaskGroup;
+  @Input() taskGroups: TaskGroup[];
 
   taskName: string;
   addTaskVisible : false;
@@ -21,12 +22,13 @@ export class TaskGroupComponent implements OnInit {
   }
 
   createNewTask(event){
-    
-    if(event.key == "Enter"){
+    console.log(event);
+    if((event.key == 'Enter' || event.type == 'blur') && this.taskName && this.taskName.length > 1){
       let task = {
         'id': (this.details.tasks ? this.details.tasks.length + 1 : 1),
         'name' : this.taskName,
-        'status': this.details.id == 3? 1 : 0
+        'taskDone': this.details.id == 3? true : false,
+        'parentGroupID': this.details.id
       }
       
       this.details.tasks?  null: this.details.tasks = [];

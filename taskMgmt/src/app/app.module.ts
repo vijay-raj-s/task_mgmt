@@ -12,7 +12,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskComponent } from './task/task.component';
 
 //Material Design Components
-import { MatIconModule, MatButtonModule,  MatToolbar, MatDialogModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import { MatIconModule, MatButtonModule,  MatToolbar, MatDialogModule, MatSelectModule , MatDatepickerModule,MatNativeDateModule , MatInputModule, MatFormFieldModule} from '@angular/material';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
  
 @NgModule({
@@ -35,9 +35,12 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
   entryComponents: [TaskDialogComponent]
 })

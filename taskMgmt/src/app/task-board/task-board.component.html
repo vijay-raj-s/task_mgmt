@@ -4,10 +4,10 @@
     </mat-toolbar>
     <div class='container-body'> 
         <div class='title-section'> 
-            <div class='title'> Tasks </div>
+            <div class='title'> Tasks Board </div>
         </div>
         <div class='tasks-section' cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" >
-            <task-group cdkDrag *ngFor='let group of taskGroups' class='task-group' [details]='group'></task-group>
+            <task-group cdkDrag *ngFor='let group of taskGroups' class='task-group' [details]='group' [taskGroups]='taskGroups'></task-group>
             <div class='add-task-group' >
                 <span (click)='addTaskGroupVisible=true'> Add Task Group </span> 
                 <div class='floating-input' *ngIf='addTaskGroupVisible'  >
