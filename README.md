@@ -1,7 +1,6 @@
 # Task Management App
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
-Used Zenkit as a reference to build the functionalities. Purely for Job Interview Trial Purpose.
 
 # Features
  
